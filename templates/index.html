@@ -7,79 +7,63 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-        <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='..mission_to_mars/static/styles.css') }}">
-        <link rel="stylesheet" href= "..mission_to_mars/static/styles.css">
+        <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='D:HW12/web-scraping-challenge/static/styles.css') }}">
+        <link rel="stylesheet" href= "D:/HW12/web-scraping-challenge/static/styles.css">
     
     </head>
 
     <body>
-        <!--Title Container-->
         <div class="container-fluid">
-                <!--Main Title-->
                 <div class="jumbotron text-center" id="main-title">
                     <h1>Mission to Mars</h1>
-                    <!--Scrape Button-->
-                    <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape for the Latest Mars Data</a></p>
+                    <p><a class="btn btn-primary btn-lg" href="D:\HW12\web-scraping-challenge\scrape_mars" role="button">Scrape for the Latest Mars Data</a></p>
                 </div>
         </div>
 
         
-        <!--Latest Mars News container-->
         <div class="container" id="mars-news">
             <div class="row">
-                <!--News title-->
                 <div class="col-md-12" id="item-title">
                     <h2>Latest Mars News</h2>
                 </div>
-                <!--News details from scrape-->
                 <h3>{{ dict.mars_news.news_title }}</h3>
                 <p>{{ dict.mars_news.news_paragraph }}</p>
             </div>
         </div>
         <hr/>
-        <!--Image & Table Container-->
         <div class="container" id="image-table">
-            <!--Featured Mars Image: Left-->
             <div class="row">
-                <!--Image Title-->
                 <div class="col-md-8" id="item-title">
                     <h2>Featured Mars Image</h2>
                     <hr/>
                     
                 
-                <!--Image from scrape-->
                 <img src="{{ dict.jpl_feat_image.feat_image_url }}"/>
                 </div>
-                <!--Mars Facts table: Right-->
                 <div class="col-md-4" id="item-title">
                     <div class="table-responsive-xl">
                     <h2>Mars Facts</h2>
                     <hr/>
                     <h3>Comparisons to Earth</h3>
-                    <!--Table from scrape-->
                     {{ dict.mars_facts|safe }}
                     </div>
                 </div>
             </div>
         </div>
         <hr/>
-        <!--Hemispheres Picture Gallery-->
         <div class="container" id="picture-gallery">
-            <!--Title for Hemispheres Picture Gallery-->
             <div class="row">
                 <div class="col-md-12" id="item-title">
                     <h2>Mars Hemispheres</h2>
                 </div>
             </div>
 
-            <!--Hemispheres Picture Gallery-->
             <div class="row">
-            <!--For loop to access the scraped list-->
+
             {% for x in dict.hemisphere_image_urls %}
                 <div class="col-md-3">
                     <div class="card-group">
                         <div class="card text-center" style="width: 12rem;">
-                        <!--Images & titles from scrape-->
                         <img class="card-img-top" src="{{ x.img_url }}" alt="{{ x.title }}">
                         <div class="card-body">
                             <p class="card-text">{{ x.title }}</p>

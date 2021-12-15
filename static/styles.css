@@ -33,7 +33,7 @@ h2 {
     padding: 10px;
     text-align: center;
     font-size: 30px;
-    color: #d37f3acb;
+    color: #c9722bcb;
 }
 
 /* General h1 */
@@ -51,8 +51,8 @@ h3 {
 
 /* Primary Button: "Scrape" */
 .btn-primary {
-    background-color: #d37f3acb;
-    border-color: #d37f3acb;
+    background-color: #c97d3fcb;
+    border-color: #854816cb;
 }
 
 /* General paragraph */
